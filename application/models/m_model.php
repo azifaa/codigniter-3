@@ -1,9 +1,13 @@
 <?php
 
-class m_model extends CI_model{
-    function get_data($table){
-        return $this->db->get($table);                                                                                   
+class M_model extends CI_Model
+{
+    function get_data($table)
+    {
+        return $this->db->get($table);
+    }
+    function getwhere($table, $data)
+    {
+        return $this->db->get_where($table, $data);
     }
 }
-
-?>
