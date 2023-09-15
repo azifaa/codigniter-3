@@ -1,6 +1,3 @@
-<?php 
-include 'connect.php'
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,12 +10,12 @@ include 'connect.php'
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-    </script>
+        </script>
 
 </head>
 
 <body>
- <button data-drawer-target=" default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar"
+    <button data-drawer-target=" default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar"
         type="button"
         class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
         <span class="sr-only">Open sidebar</span>
@@ -62,9 +59,6 @@ include 'connect.php'
 
                     </a>
                 </li>
-
-
-
                 <li>
 
                     <a href="<?php echo base_url('Login/logout'); ?>"
@@ -108,55 +102,54 @@ include 'connect.php'
                         <table class="table  table-striped">
                             <thead>
                                 <tr>
+                                    <th scope="col">No </th>
                                     <th scope="col">Nama </th>
                                     <th scope="col">NISN </th>
-                                    <th scope="col"> Gender </th>
+                                    <th scope="col">Gender </th>
+                                    <th scope="col">kelas</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                    $sql = "SELECT * FROM siswa";
-                    $result = mysqli_query($conn, $sql);
-                    if ($result) {
-                        while ($data = mysqli_fetch_assoc($result)) {
-                            $id = $data['id'];
-                            $nama = $data['nama_lengkap'];
-                            $nisn = $data['NISN'];
-                            $gender = $data['Gender'];
-                            
-                            echo '<tr>
-                          <td>' . $nama . '</td>
-                          <td>' . $nisn . '</td>
-                          <td>' . $gender . '</td>
-                          
-                          <td class="text-center ">
-                          <a href="update.php?id=' . $id . '"class="btn btn-sm btn-warning text-dark">Update</a>
-                          
-                          <a href="delete.php?id=' . $id . '"class="btn btn-sm btn-warning text-dark">Delete</a>
-                          </td>
-                        
-                          </tr>';
-                        }
-                    }
-                    ?>
-
+                                <?php $no = 0;
+                                foreach ($siswa as $row):
+                                    $no++ ?>
+                                    <tr>
+                                        <td>
+                                            <?php echo $no ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row->nama_siswa ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row->nisn ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row->gender ?>
+                                        </td>
+                                        <td><?php echo tampil_full_kelas_byid(
+                                    $row->id_kelas ); ?></td>
+                                        <td class="text-center">
+                                            <a href="" class="btn btn-sm btn-primary">Detail</a>
+                                            <button onClick="hapus (<?php echo $row->id_siswa ?>)" class="btn btn-sm btn-danger">Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
                             </tbody>
                         </table>
-                        <button class="btn btn-sm btn-warning"><a href="create.php"
+                        <button class="btn btn-sm btn-warning"><a href="tambah_siswa"
                                 class="btn text-dark">Tambah</a></button>
                     </div>
                     </form>
                     <script>
-                    function hapus(id) {
-                        var yes = confirm("Yakin Ingin Menghapus Data Anda")
-                        if (yes === true) {
-                            window.location.href = "delete.php?id=" + id;
+                        function hapus(id) {
+                            var yes = confirm("Yakin Nieh Di Hapus?")
+                            if (yes === true) {
+                                window.location.href = "<?php echo base_url('admin/hapus_siswa/')?>" + id;
+                            }
                         }
-                    }
                     </script>
-
-
                 </div>
             </div>
 
