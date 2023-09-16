@@ -19,7 +19,7 @@ class Admin extends CI_Controller
 
         $this->load->view('admin/index');
     }
-    public function daftar_siswa()
+    public function siswa()
     {
         $data['siswa'] = $this->m_model->get_data('siswa')->result();
         $this->load->view('admin/siswa', $data);
@@ -27,8 +27,10 @@ class Admin extends CI_Controller
     public function tambah_siswa()
     {
         $data['kelas'] = $this->m_model->get_data('kelas')->result();
-        $this->load->view('admin/tambah_siswa', $data);
+        $this->load->view('admin/tambah_siswa',$data);
     }
+
+
     public function aksi_tambah_siswa()
     {
         $data = [
@@ -39,12 +41,39 @@ class Admin extends CI_Controller
         ];
 
         $this->m_model->tambah_data('siswa', $data);
-        redirect(base_url('admin/daftar_siswa'));
+        redirect(base_url('admin/siswa'));
     }
+    public function ubah_siswa($id)
+    {
+        $data['siswa']=$this->m_model->get_by_id('siswa', 'id_siswa', $id)->result();
+        $data['kelas']=$this->m_model->get_data('kelas')->result();
+        $this->load->view('admin/ubah_siswa', $data);
+    }
+    public function aksi_ubah_siswa()
+    {
+        $data = array (
+            'nama_siswa' => $this->input->post('nama'),
+            'nisn' => $this->input->post('nisn'),
+            'gender' => $this->input->post('gender'),
+            'id_kelas' => $this->input->post('id_kelas'),
+        );
+        $eksekusi=$this->m_model->ubah_data
+        ('siswa', $data, array('id_siswa'=>$this->input->post('id_siswa')));
+        if($eksekusi)
+        {
+            $this->session->set_flashdata('sukses', 'berhasil');
+            redirect(base_url('admin/siswa'));
+        }else
+        {
+            $this->session->set_flashdata('error', 'gagal..');
+            redirect(base_url('admin/siswa/ubah_siswa/'.$this->input->post('id_siswa')));
+        }
+    }
+
     public function hapus_siswa($id)
     {
         $this->m_model->delete('siswa', 'id_siswa', $id);
-        redirect(base_url('admin/daftar_siswa'));
+        redirect(base_url('admin/siswa'));
     }
 }
 ?>
