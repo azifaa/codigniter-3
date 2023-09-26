@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<div class="container mt-12>
     <script src="https://cdn.tailwindcss.com"></script>
- 
+    </head>
+
+<body>
+    <?php $this->load->view('component/sidebar') ?>
  <div class="overflow-x-auto"> 
-     <form action="<?php echo base_url('admin/aksi_Tambah_siswa') ?>" enctype="multipart/form-data" 
+     <form action="<?php echo base_url('admin/aksi_tambah_siswa') ?>" enctype="multipart/form-data" 
          method="post"> 
          <div class="max-full rounded border overflow-hidden shadow-lg"> 
              <div class="px-6 py-4"> 
@@ -39,23 +42,29 @@
                              <option value="Perempuan">Perempuan</option> 
                          </select> 
                      </div> 
-                     <div class="mb-4"> 
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="kelas"> 
-                                        Kelas 
-                                    </label> 
-                                    <select name="kelas" id="kelas" 
-                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 
-                                        <option selected>Pilih Kelas</option> 
-                                        <?php foreach($kelas as $row): ?> 
-                                        <option value="<?php echo $row->id_kelas ?>"> 
-                                            <?php echo $row->tingkat_kelas.' '.$row->jurusan_kelas ?></option> 
-                                        <?php endforeach ?> 
-                                    </select> 
-                                </div>
-                     <button type="submit" 
-                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-2/6"> 
-                         Tambah 
-                     </button> 
+                     <div class="mb-3 col-6"> 
+                <label for="kelas" class="form-label">Kelas</label> 
+                <select name="id_kelas" id="kelas" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 
+                    <option selected>Pilih Kelas</option> 
+                    <?php foreach ($kelas as $row):?> 
+                    <option  value="<?php echo $row->id ?>"> 
+                    <?php echo $row->tingkat_kelas.' '.$row->jurusan_kelas; ?> </option> 
+                    <?php endforeach; ?> 
+                </select> 
+            </div>
+                                <div class="mb-4"> 
+                         <label class="block text-gray-700 text-sm font-bold mb-2" for="nama"> 
+                             Foto 
+                         </label> 
+                         <input 
+                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                             id="foto" name="foto" type="file" placeholder="foto"> 
+                     </div> 
+                     <div>
+                    <button type="submit"
+                        class="flex items-center p-2 m-10 w-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2  rounded w-5/6"
+                        name=" submit">Tambah</button>
+                </div> 
                  </div> 
              </div> 
          </div> 
@@ -64,7 +73,5 @@
 </div> 
 </div>
 </head>
-<body>
-    
 </body>
 </html>

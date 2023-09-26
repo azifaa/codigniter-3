@@ -13,7 +13,7 @@
     <div class="card w-50 m-auto p-3">
     <div class="max-full rounded border overflow-hidden shadow-lg">
     <div class="px-6 py-4">  
-        <h3 class="text-center">Tambah Data</h3>
+        <h3 class="text-center">Ubah Data</h3>
         <?php foreach ($siswa as $data_siswa): ?>
             <form action="<?php echo base_url('admin/aksi_tambah_siswa') ?>" enctype="multipart/form-data" method="post"
                 class="row">
