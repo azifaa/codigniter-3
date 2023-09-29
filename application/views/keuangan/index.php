@@ -10,12 +10,12 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-    </script>
+        </script>
 
 </head>
 
 <body>
-<button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar"
+    <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar"
         type="button"
         class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
         <span class="sr-only">Open sidebar</span>
@@ -42,11 +42,11 @@
                             <path
                                 d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
                         </svg>
-                        <span class="ml-3">Dashboard Admin</span>
+                        <span class="ml-3">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url('admin/siswa') ?>"
+                    <a href="<?php echo base_url('Keuangan/pembayaran') ?>"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -55,33 +55,19 @@
                                 d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
 
                         </svg>
-                        <span class="flex-1 ml-3 whitespace-nowrap">Daftar Siswa</span>
+                        <span class="flex-1 ml-3 whitespace-nowrap">Pembayaran</span>
 
                     </a>
                 </li>
-                <li>
-                    <a href="<?php echo base_url('admin/account') ?>"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                            viewBox="0 0 18 18">
-                            <path
-                                d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-
-                        </svg>
-                        <span class="flex-1 ml-3 whitespace-nowrap">Account</span>
-
+                <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br>
+                <div>
+                    <!-- Mengganti teks "Keluar" dengan gambar kecil dan transparan -->
+                    <a href="<?php echo base_url('auth/logout') ?>" style="color: #fff; text-decoration: none;">
+                        <img src="https://png.pngtree.com/png-vector/20190505/ourmid/pngtree-vector-logout-icon-png-image_1022628.jpg"
+                            alt="Logout" style="width: 20px; opacity: 0.5; margin-right: 10px;" />
                     </a>
-                </li>
-              <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br>
-              <div> 
-               <!-- Mengganti teks "Keluar" dengan gambar kecil dan transparan --> 
-             <a href="<?php echo base_url('auth/logout')?>" style="color: #fff; text-decoration: none;"> 
-                <img src="https://png.pngtree.com/png-vector/20190505/ourmid/pngtree-vector-logout-icon-png-image_1022628.jpg" 
-                alt="Logout" style="width: 20px; opacity: 0.5; margin-right: 10px;" /> 
-             </a> 
-             Logout
-         </div>
+                    Logout
+                </div>
             </ul>
         </div>
     </aside>
@@ -89,7 +75,7 @@
     <div class="p-4 sm:ml-64">
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
-                <a href="">Dashboard Sekolah</a>
+                <a href="">Dashboard Keuangan</a>
 
                 <div class="nav-item dropdown">
                 </div>
@@ -97,35 +83,55 @@
         </nav>
         <br>
 
-        <div class="row ">
-            <div class="col-3 card p-2">
+        <div class="row p-4">
+            <div class=" col-3 card p-2">
                 <div class="card-body">
-                    <p>Jumlah Kelas</p>
-                    <a href="#" class="btn btn-warning d-grid gap-2">Data Lengkap</a>
+                    <p class="fs-4">Pembayaran SPP</p>
+                    <hr>
+                    <br>
+                    <h5 class="mb-0">
+                        <strong class="fs-2">200 Siswa </strong>
+                        <small class="text-success ms-2">
+                            Rp. <i class="fas fa-arrow-down fa-sm pe-1">45.890.000 </i></small>
+                    </h5>
+                    <br>
+                    <a href="#" class="btn btn-primary d-grid gap-2">Data Lengkap</a>
                 </div>
             </div>
             <br>
             <div class="col-3 card p-2">
                 <div class="card-body">
-                    <p>Daftar Siswa</p>
-                    <a href="#" class="btn btn-warning d-grid gap-2">Data Lengkap</a>
+                <p class="fs-4">Pembayaran Uang Gedung</p>
+                <hr>
+                <br>
+                <h5 class="mb-0">
+                        <strong class="fs-2">200 Siswa </strong>
+                        <small class="text-success ms-2">
+                            Rp. <i class="fas fa-arrow-down fa-sm pe-1">50.750.000 </i></small>
+                    </h5>
+                    <br>
+                    <a href="#" class="btn btn-primary d-grid gap-2">Data Lengkap</a>
                 </div>
             </div>
             <br>
             <div class="col-3 card p-2">
                 <div class="card-body">
-                    <p>Mapel</p>
-                    <a href="#" class="btn btn-warning d-grid gap-2">Data Lengkap</a>
-                </div>
-            </div>
-            <div class="col-3 card p-2">
-                <div class="card-body">
-                    <p>Guru</p>
-                    <a href="#" class="btn btn-warning d-grid gap-2">Data Lengkap</a>
+                <p class="fs-4">Pembayaran Uang Seragam</p>
+                <hr>
+                <br>
+                <h5 class="mb-0">
+                        <strong class="fs-2">200 Siswa </strong>
+                        <small class="text-success ms-2">
+                            Rp. <i class="fas fa-arrow-down fa-sm pe-1">350.000 </i></small>
+                    </h5>
+                    <br>
+                    <a href="#" class="btn btn-primary d-grid gap-2">Data Lengkap</a>
                 </div>
             </div>
         </div>
-        <br>
+    </div>
+    <br>
     </div>
 </body>
+
 </html>

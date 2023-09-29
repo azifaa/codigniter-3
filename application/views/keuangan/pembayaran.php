@@ -32,7 +32,7 @@
         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
                 <li>
-                    <a href="<?php echo base_url('admin/index') ?>"
+                    <a href="<?php echo base_url('keuangan/index') ?>"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -46,7 +46,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url('admin/siswa') ?>"
+                    <a href="<?php echo base_url('Keuangan/pembayaran') ?>"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -55,21 +55,7 @@
                                 d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
 
                         </svg>
-                        <span class="flex-1 ml-3 whitespace-nowrap">Daftar Siswa</span>
-
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url('admin/Account') ?>"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                            viewBox="0 0 18 18">
-                            <path
-                                d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-
-                        </svg>
-                        <span class="flex-1 ml-3 whitespace-nowrap">Account</span>
+                        <span class="flex-1 ml-3 whitespace-nowrap">Pembayaran</span>
 
                     </a>
                 </li>
@@ -88,7 +74,9 @@
     <div class="p-4 sm:ml-64">
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
-                <a href=""><h1>Daftar Siswa</h1></a>
+                <a href="">
+                    <h1>Data Pembayaran</h1>
+                </a>
                 <div class="nav-item dropdown">
                 </div>
             </div>
@@ -99,42 +87,38 @@
                 <div class="card-body min-vh-100  align-items-center">
                     <div class="card w-100 m-auto p-2">
                         <table class="table  table-striped">
-                            <a href="<?php echo base_url('admin/tambah_siswa')?>"><button class="btn btn-sm btn-warning">Tambah</button></a>
+                            <a href="<?php echo base_url('Keuangan/tambah_pembayaran') ?>"><button
+                                    class="btn btn-sm btn-warning">Tambah</button></a>
                             <thead>
                                 <tr>
                                     <th scope="col">No </th>
-                                    <th scope="col">Foto </th>
-                                    <th scope="col">Nama </th>
-                                    <th scope="col">NISN </th>
-                                    <th scope="col">Gender </th>
-                                    <th scope="col">kelas</th>
+                                    <th scope="col">Nama Siswa </th>
+                                    <th scope="col">Jenis pembayaran</th>
+                                    <th scope="col">Total Pembayaran</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $no = 0;
-                                foreach ($siswa as $row):
+                                foreach ($pembayaran as $row):
                                     $no++ ?>
                                     <tr>
                                         <td>
                                             <?php echo $no ?>
                                         </td>
                                         <td>
-                                           <img src="<?php echo base_url('images/siswa/'.$row->foto) ?>" width="50">
+                                        <?php echo nama_siswa($row->id_siswa) ?>
+                                        <td>
+                                            <?php echo $row->jenis_pembayaran ?>
                                         </td>
                                         <td>
-                                            <?php echo $row->nama_siswa ?>
+                                            <?php echo $row->total_pembayaran ?>
                                         </td>
-                                        <td>
-                                            <?php echo $row->nisn ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row->gender ?>
-                                        </td>
-                                        <td>  <?php echo tampil_full_kelas_byid($row->id_kelas) ?></td>
                                         <td class="text-center">
-                                            <a href="<?php echo base_url('admin/ubah_siswa/').$row->id_siswa?>" class="btn btn-sm btn-primary">Ubah</a>
-                                            <button onClick="hapus (<?php echo $row->id_siswa ?>)" class="btn btn-sm btn-danger">Delete
+                                            <a href="<?php echo base_url('admin/ubah_siswa/') . $row->id_siswa ?>"
+                                                class="btn btn-sm btn-primary">Ubah</a>
+                                            <button onClick="hapus (<?php echo $row->id ?>)"
+                                                class="btn btn-sm btn-danger">Delete
                                             </button>
                                         </td>
                                     </tr>
@@ -145,18 +129,21 @@
                     </form>
                     <script>
                         function hapus(id) {
-                            var yes = confirm("Yakin Nieh Di Hapus?")
+                            var yes = confirm("Yakin Ingin Menghapus Data Anda")
                             if (yes === true) {
-                                window.location.href = "<?php echo base_url('admin/hapus_siswa/')?>" + id;
+                                window.location.href = "<?php echo base_url('Keuangan/hapus_data/') ?>" + id;
                             }
                         }
                     </script>
+
                 </div>
             </div>
         </div>
         <br>
     </div>
 </body>
+
 </html>
 </body>
+
 </html>

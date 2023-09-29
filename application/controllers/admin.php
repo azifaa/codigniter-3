@@ -176,8 +176,34 @@ class Admin extends CI_Controller
     }
     public function hapus_siswa($id)
     {
-        $this->m_model->delete('siswa', 'id_siswa', $id);
-        redirect(base_url('admin/siswa'));
+        // model get siswa by id
+         $siswa= $this->m_model->get_by_id('siswa', 'id_siswa', $id)->row();
+         if ($siswa) {
+            if ($siswa->foto !== 'User.pgn') {
+                $file_path = './images/siswa/' .$siswa->foto;
+
+                if (file_exists($file_path)) {
+                    if (unlink($file_path)) {
+                        // hapus file berhasil menggunakan model delete
+                        $this->m_model->delete('siswa', 'id_siswa', $id);
+                        redirect(base_url('admin/siswa'));                                                                                  
+                    } else {
+                    //   gagal menghapus file
+                     echo "gagal mengahapus file.";
+                    }
+                } else {
+                    // file tidak ditemukan 
+                    echo "file tidak ditemukan.";
+                }
+            } else {
+                // jangan hapus file 'user.pgn'
+                $this->m_model->delete('siswa', 'id_siswa', $id);
+                 redirect(base_url('admin/siswa'));
+            }
+         } else {
+            // siswa tidak ditemukan
+            echo "siswa tidak ditemukan.";
+         }
     }
     public function hapus_account($id)
     {

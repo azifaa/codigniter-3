@@ -7,7 +7,7 @@
     </head>
 
 <body>
-    <?php $this->load->view('component/sidebar') ?>
+   
  <div class="overflow-x-auto"> 
      <form action="<?php echo base_url('admin/aksi_tambah_siswa') ?>" enctype="multipart/form-data" 
          method="post"> 
@@ -52,18 +52,18 @@
                     <?php endforeach; ?> 
                 </select> 
             </div>
-                                <div class="mb-4"> 
-                         <label class="block text-gray-700 text-sm font-bold mb-2" for="nama"> 
-                             Foto 
-                         </label> 
-                         <input 
-                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                             id="foto" name="foto" type="file" placeholder="foto"> 
-                     </div> 
-                     <div>
-                    <button type="submit"
-                        class="flex items-center p-2 m-10 w-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2  rounded w-5/6"
-                        name=" submit">Tambah</button>
+                <div class="mb-4"> 
+                 <label class="block text-gray-700 text-sm font-bold mb-2" for="nama"> 
+                     Foto 
+                 </label> 
+                 <input 
+                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                 id="foto" name="foto" type="file" placeholder="foto"> 
+                 </div> 
+                 <div>
+                <button type="submit"
+                class="flex items-center p-2 m-10 w-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2  rounded w-5/6"
+                   name=" submit">Tambah</button>
                 </div> 
                  </div> 
              </div> 
