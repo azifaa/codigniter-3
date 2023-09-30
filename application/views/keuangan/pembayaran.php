@@ -112,11 +112,11 @@
                                             <?php echo $row->jenis_pembayaran ?>
                                         </td>
                                         <td>
-                                            <?php echo $row->total_pembayaran ?>
+                                            <?php echo convRupiah ($row->total_pembayaran); ?>
                                         </td>
                                         <td class="text-center">
-                                            <a href="<?php echo base_url('admin/ubah_siswa/') . $row->id_siswa ?>"
-                                                class="btn btn-sm btn-primary">Ubah</a>
+                                            <a href="<?php echo base_url('keuangan/update_pembayaran/') . $row->id_siswa ?>"
+                                                class="btn btn-sm btn-primary">Update</a>
                                             <button onClick="hapus (<?php echo $row->id ?>)"
                                                 class="btn btn-sm btn-danger">Delete
                                             </button>

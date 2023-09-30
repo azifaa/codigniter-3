@@ -29,6 +29,7 @@ class Keuangan extends CI_Controller {
 		$data['pembayaran'] = $this->m_model->get_data('pembayaran')->result();
 		$this->load->view('keuangan/tambah_pembayaran', $data);
 	}
+	// aksi tambah pembayaran
     public function aksi_tambah_pembayaran()
 	{
 		$data = [
@@ -46,41 +47,31 @@ class Keuangan extends CI_Controller {
 		redirect(base_url('keuangan/pembayaran'));
 	}
     public function update_pembayaran($id)
-    {		
-        
+    {
         $data['siswa'] = $this->m_model->get_data('siswa')->result();
-
-        $data['pembayaran'] = $this->m_model->get_by_id('pembayaran', 'id', $id)->result();
-     
+        $data['pembayaran'] = $this->m_model->get_by_id('pembayaran', 'id_siswa', $id)->result();
         $this->load->view('keuangan/update_pembayaran', $data);
     }
+
+    // untuk aksi ubah bayar
     public function aksi_update_pembayaran()
-	{
-		$data = array(
-			'id_siswa' => $this->input->post('siswa'),
-			'jenis_pembayaran' => $this->input->post('jenis_pembayaran'),
-			'total_pembayaran' => $this->input->post('total_pembayaran'),
-		);
-		$eksekusi = $this->m_model->ubah_data(
-			'pembayaran',
-			$data,
-			array('id' => $this->input->post('id'))
-
-		);
-		if ($eksekusi) {
-			$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-			Data Berhasil Diubah
-			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		
-		  </div>');
-			redirect(base_url('keuangan/pembayaran'));
-		} else {
-
-			redirect(base_url('keuangan/update_pembayaran/' . $this->input->post('id')));
-		}
-
-		$this->load->view('keuangan/pembayaran');
-	}
+    {
+        $data = array (
+                'id_siswa'         => $this->input->post('nama'),
+                'jenis_pembayaran' => $this->input->post('jenis_pembayaran'),
+                'total_pembayaran' => $this->input->post('total_pembayaran'),
+        );
+        $eksekusi=$this->m_model->ubah_data
+        ('pembayaran', $data, array('id'=>$this->input->post('id')));
+        if ($eksekusi)
+        {
+            $this->session->set_flashdata('sukses','berhasil');
+            redirect(base_url('keuangan/pembayaran'));
+        } else {
+            $this->session->set_flashdata('error','gagal');
+            redirect(base_url('keuangan/pembayaran/'.$this->input->post('id')));
+        }
+    }
 	public function hapus_data($id)
     {
         $this->m_model->delete('pembayaran', 'id', $id);
