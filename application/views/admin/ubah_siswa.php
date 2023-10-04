@@ -15,7 +15,7 @@
     <div class="px-6 py-4">  
         <h3 class="text-center">Ubah Data</h3>
         <?php foreach ($siswa as $data_siswa): ?>
-            <form action="<?php echo base_url('admin/aksi_tambah_siswa') ?>" enctype="multipart/form-data" method="post"
+            <form action="<?php echo base_url('admin/aksi_ubah_siswa') ?>" enctype="multipart/form-data" method="post"
                 class="row">
                 <input name="id_siswa" type="hidden" value="<?php echo $data_siswa->id_siswa ?>">
                 <div class="mb-3 col-6">

@@ -29,6 +29,10 @@ class M_model extends CI_Model
         $data=$this->db->update($table, $data, $where);
         return $this->db->affected_rows();
     }
+    public function get_by_column($table, $column, $value)
+    {
+        return $this->db->get_where($table, array($column => $value));
+    }
     public function getDataPembayaran() 
     {
       $this->db->select('pembayaran.id, pembayaran.jenis_pembayaran, pembayaran.total_pembayaran, siswa.nama_siswa, kelas.tingkat_kelas, kelas.jurusan_kelas');
@@ -55,5 +59,30 @@ class M_model extends CI_Model
             return false;
         }
     }
+    // get siswa
+    public function get_data_siswa() {
+        $this->db->join('kelas', 'siswa.id_kelas = kelas.id','left');
+        
+        $query = $this->db->get('siswa');
+
+        // mengembalikan hasil query
+        return $query->result();
+    }
+    public function get_by_jurusan($jurusan, $tingkat)
+    {
+        $this->db->select('id');
+        $this->db->from('kelas');
+        $this->db->where('jurusan_kelas', $jurusan);
+        $this->db->where('tingkat_kelas', $tingkat);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            $result = $query->row();
+            return $result->id;
+        }else {
+            return false;
+        }
+    }
+
 }
 ?>

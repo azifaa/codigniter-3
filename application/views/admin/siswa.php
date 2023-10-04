@@ -99,7 +99,10 @@
                 <div class="card-body min-vh-100  align-items-center">
                     <div class="card w-100 m-auto p-2">
                         <table class="table  table-striped">
+                        <div class="">
                             <a href="<?php echo base_url('admin/tambah_siswa')?>"><button class="btn btn-sm btn-warning">Tambah</button></a>
+                            <a href="<?php echo base_url('admin/export') ?>"><button
+                                          class="btn btn-sm btn-success ml-1">Export</button>
                             <thead>
                                 <tr>
                                     <th scope="col">No </th>
@@ -141,6 +144,13 @@
                                 <?php endforeach ?>
                             </tbody>
                         </table>
+                        <form class="mt-5" method="post" enctype="multipart/form-data"
+                        action="<?= base_url('admin/import') ?>">
+                        <input type="file" name="file" />
+                         <input type="submit" name="import"
+                         class="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-"
+                         value="import" />
+                        </form>
                     </div>
                     </form>
                     <script>

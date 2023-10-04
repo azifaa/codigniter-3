@@ -9,7 +9,7 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -22,7 +22,7 @@
         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
                 <li>
-                    <a href="<?php echo base_url('keuangan/index') ?>"
+                    <a href="<?php echo base_url('keuangan/index')?>"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 
                         <span class="ml-3">Dashboard</span>
@@ -66,50 +66,48 @@
     <div class="card w-50 m-auto p-3">
 
         <!-- Konten -->
+        <!-- Konten -->
+
         <div class="content">
-            <h3 class="text-center">Update Pembayaran</h3>
-            <?php foreach ($pembayaran as $data_pembayaran): ?>
-                <form class="row" action="<?php echo base_url('keuangan/aksi_update_pembayaran'); ?>"
-                    enctype="multipart/form-data" method="post">
-                    <input type="hidden" name="id" value="<?php echo $data_pembayaran->id ?>">
-                    <div class="col-md-6"> 
-                                    <div class="form-group"> 
-                                        <label for="siswa">Siswa</label> 
-                                        <select id="siswa" name="siswa" class="form-control" required> 
-                                            <option selected value="<?php $data_pembayaran->id_siswa ?>"> 
-                                                <?php echo nama_siswa($data_pembayaran->id_siswa) ?> 
-                                            </option> 
-                                            <?php foreach ($siswa as $row): ?> 
-                                            <option value="<?php echo $row->id_siswa ?>"> 
-                                                <?php echo $row->nama_siswa ?> 
-                                            </option> 
-                                            <?php endforeach ?> 
-                                        </select> 
-                                    </div>
+            <?php if (isset($pembayaran)): ?>
+                <h3 class="text-center">Ubah</h3>
+                <form class="row" action="<?php echo base_url('keuangan/aksi_ubah_bayar'); ?>" enctype="multipart/form-data"
+                    method="post">
+                    <input name="id" type="hidden" value="<?php echo $pembayaran->id; ?>">
                     <div class="mb-3 col-6">
-                        <label for="jenis_pembayaran" class="form-label">Jenis Pembayaran</label>
+                        <label for="nama_siswa" class="form-label">Nama Siswa</label>
+                        <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" required>
+                    </div>
+
+                    <div class="mb-3 col-6">
+                        <label for="" class="form-label">Jenis Pembayaran</label>
                         <select name="jenis_pembayaran" class="form-select">
                             <option selected>
-                                <?php echo $data_pembayaran->jenis_pembayaran; ?>
+                                <?php echo isset($pembayaran->jenis_pembayaran) ? $pembayaran->jenis_pembayaran : ''; ?>
                             </option>
-                            <option value="" selected>Pilih Jenis Pembayaran</option>
+                            <!-- <option value="" selected>Pilih Jenis Pembayaran</option> -->
                             <option value="pembayaran SPP">Pembayaran SPP</option>
                             <option value="pembayaran uang gedung">Pembayaran Uang Gedung</option>
                             <option value="pembayaran seragam">Pembayaran Seragam</option>
                         </select>
                     </div>
                     <div class="mb-3 col-6">
-                        <label for="total_pembayaran" class="form-label">Total Pembayaran</label>
+                        <label for="" class="form-label">Total Pembayaran</label>
                         <input type="text" class="form-control" id="total_pembayaran" name="total_pembayaran"
-                            value="<?php echo $data_pembayaran->total_pembayaran; ?>">
+                            value="<?php echo isset($pembayaran->total_pembayaran) ? $pembayaran->total_pembayaran : ''; ?>">
                     </div>
                     <div class="mb-3 col-12">
-                        <input type="hidden" name="id_siswa" value="<?php echo $data_pembayaran->id_siswa; ?>">
+                        <input type="hidden" name="id_siswa"
+                            value="<?php echo isset($pembayaran->id_siswa) ? $pembayaran->id_siswa : ''; ?>">
                         <button type="submit" class="btn btn-primary">Ubah</button>
                     </div>
                 </form>
-            <?php endforeach; ?>
+            <?php else: ?>
+                <!-- Tampilkan pesan atau tindakan yang sesuai jika objek $pembayaran tidak ada -->
+            <?php endif; ?>
         </div>
+    </div>
+    </div>
     </div>
 </body>
 

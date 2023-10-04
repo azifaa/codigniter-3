@@ -87,11 +87,12 @@
                 <div class="card-body min-vh-100  align-items-center">
                     <div class="card w-100 m-auto p-2">
                         <table class="table  table-striped">
-                            <button class="text-center">
+                        <div class="">
                                 <a href="<?php echo base_url('Keuangan/tambah_pembayaran') ?>"><button
-                                        class="btn btn-sm btn-warning">Tambah</button></a>
+                                        class="btn btn-sm btn-primary">Tambah</button></a>
                                         <a href="<?php echo base_url('keuangan/export') ?>"><button
                                           class="btn btn-sm btn-success ml-1">Export</button>
+                                          </div>
                                 <thead>
                                     <tr>
                                         <th scope="col">No </th>
@@ -118,7 +119,7 @@
                                                 <?php echo convRupiah($row->total_pembayaran); ?>
                                             </td>
                                             <td class="text-center">
-                                                <a href="<?php echo base_url('keuangan/update_pembayaran/') . $row->id_siswa ?>"
+                                                <a href="<?php echo base_url('keuangan/ubah_bayar/') . $row->id_siswa ?>"
                                                     class="btn btn-sm btn-primary">Update</a>
                                                 <button onClick="hapus (<?php echo $row->id ?>)"
                                                     class="btn btn-sm btn-danger">Delete
@@ -128,8 +129,8 @@
                                     <?php endforeach ?>
                                 </tbody>
                         </table>
-                        <form class="mt-5" method="post" enctype="multipart/from-data"
-                         action="<?= base_url('keuangan/import') ?>">
+                        <form class="mt-5" method="post" enctype="multipart/form-data"
+                        action="<?= base_url('keuangan/import') ?>">
                         <input type="file" name="file" />
                          <input type="submit" name="import"
                          class="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-"
