@@ -366,7 +366,7 @@ class Admin extends CI_Controller
   public function export_guru()
   {
     $data['data_guru'] = $this->m_model->get_data('guru')->result();
-    $data['nama'] = 'guru';
+    $data['name'] = 'guru';
     if ($this->uri->segment(3) == "pdf") {
         $this->load->library('pdf');
         $this->pdf->load_view('admin/export_data_guru', $data);
